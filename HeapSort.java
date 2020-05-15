@@ -14,7 +14,6 @@ public class HeapSort {
             arr[0] = arr[i];
             arr[i] = temp;
 
-            // Heapify root element
             heapify(arr, i, 0);
         }
     }

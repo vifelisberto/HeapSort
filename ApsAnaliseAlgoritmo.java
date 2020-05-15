@@ -1,27 +1,43 @@
 public class ApsAnaliseAlgoritmo {
+    private static HeapSort heap = new HeapSort();
+
     public static void main(final String[] args) throws Exception {
+
+        ordernarPiorCaso();
+        ordenarMelhorCaso();
+
+        // ordernarPiorCaso();
+        // ordenarMelhorCaso();
+    }
+
+    private static void ordernarPiorCaso() {
         int[] vetorPiorCaso = gerarVetorPiorCaso();
-        int[] vetorMelhorCaso = gerarVetorMelhorCaso();
 
-        final HeapSort heap = new HeapSort();
-
-        // Pior caso
-        long tempoInicio = System.currentTimeMillis();
+        // Inicia a contagem
+        long inicio = System.currentTimeMillis();
 
         heap.sort(vetorPiorCaso);
 
-        long tempoPiorCaso = (System.currentTimeMillis() - tempoInicio);
+        // Termina a contagem
+        long tempo = (System.currentTimeMillis() - inicio);
 
-        System.out.println("\n################ Tempo Total Pior caso: " + tempoPiorCaso + " ################");
+        System.out.println(
+                "\n\nCom o vetor de pior caso (Ao Contrário)" + "\nA ordenação foi feita em: " + tempo + " Milissegundos");
+    }
 
-        // Melhor Caso
-        tempoInicio = System.currentTimeMillis();
+    private static void ordenarMelhorCaso() {
+        int[] vetorMelhorCaso = gerarVetorMelhorCaso();
+
+        // Inicia a contagem
+        long inicio = System.currentTimeMillis();
 
         heap.sort(vetorMelhorCaso);
 
-        long tempoMelhorCaso = (System.currentTimeMillis() - tempoInicio);
+        // Termina a contagem
+        long tempo = (System.currentTimeMillis() - inicio);
 
-        System.out.println("\n################ Tempo Total Melhor caso: " + tempoMelhorCaso + " ################");
+        System.out.println(
+                "\n\nCom o vetor de melhor caso (Já ordenado)" + "\nA ordenação foi feita em: " + tempo + " Milissegundos");
     }
 
     private static int[] gerarVetorPiorCaso() {
